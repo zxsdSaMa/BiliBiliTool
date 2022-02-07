@@ -40,17 +40,17 @@ namespace Ray.BiliBiliTool.Agent
                 }
             }
 
-            if (CookieDictionary.TryGetValue(GetPropertyDescription(nameof(UserId)), out string userId))
+            if (true)
             {
-                UserId = userId;
+                UserId = "29117763";
             }
-            if (CookieDictionary.TryGetValue(GetPropertyDescription(nameof(BiliJct)), out string jct))
+            if (true)
             {
-                BiliJct = jct;
+                BiliJct = "ee39aa0c16fceacb1b63775e24e2dc9b";
             }
-            if (CookieDictionary.TryGetValue(GetPropertyDescription(nameof(SessData)), out string sess))
+            if (true)
             {
-                SessData = sess;
+                SessData = "d3283235%2C1659814400%2C79531%2A21";
             }
 
             Check();
