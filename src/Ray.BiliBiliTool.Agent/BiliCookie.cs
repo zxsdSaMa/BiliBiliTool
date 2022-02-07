@@ -77,43 +77,9 @@ namespace Ray.BiliBiliTool.Agent
         /// 检查是否已配置
         /// </summary>
         /// <returns></returns>
-        public void Check()
-        {
-            bool result = true;
-            string msg = "配置项[{0}]为空，该项为必须配置，对应浏览器中Cookie中的[{1}]值";
-
-            //UserId为空，抛异常
-            if (string.IsNullOrWhiteSpace(UserId))
-            {
-                _logger.LogWarning(msg, nameof(UserId), GetPropertyDescription(nameof(UserId)));
-
-                result = false;
-            }
-            else if (!long.TryParse(UserId, out long uid))//不为空，但不能转换为long，警告
-            {
-                _logger.LogWarning("UserId：{uid} 不能转换为long型，请确认配置的是正确的Cookie值", UserId);
-            }
-
-            //SessData为空，抛异常
-            if (string.IsNullOrWhiteSpace(SessData))
-            {
-                _logger.LogWarning(msg, nameof(SessData), GetPropertyDescription(nameof(SessData)));
-                result = false;
-            }
-
-            //BiliJct为空，抛异常
-            if (string.IsNullOrWhiteSpace(BiliJct))
-            {
-                _logger.LogWarning(msg, nameof(BiliJct), GetPropertyDescription(nameof(BiliJct)));
-                result = false;
-            }
-
-            if (!result)
-                throw new Exception($"请正确配置Cookie后再运行，配置方式见 {Constants.SourceCodeUrl}");
-        }
 
         public override string ToString()
-        {
+        {   
             if (CookieStr.IsNotNullOrEmpty()) return CookieStr;
 
             string re = (OtherCookies ?? "").Trim();
